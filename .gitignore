@@ -1,0 +1,33 @@
+# Build output and local Python environments
+/build/
+/dist/
+/release/
+/build_assets/licenses/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local state, credentials, private documents, and downloaded model files
+/settings.json
+/browser_bridge.json
+/library/
+/library.db*
+/voices/
+/ocr/
+/ai_lessons/
+/textbooks/
+/textbook_audio_cache/
+/gemini_api_key*
+/speech_diagnostics.jsonl*
+/auth.json
+/backups/
+/tmp/
+/build_assets/ocr/tessdata/
+.env
+.env.*
+*.dpapi
+
+# Generated source-run extension config contains a machine-local credential.
+/browser_extension/bridge-config.js

@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Piper Reader",
+  "version": "1.1.0",
+  "minimum_chrome_version": "105",
+  "description": "Read the current webpage aloud with Piper Reader's local voices.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtA9VP/q2n6C+Ap19LZHW+qNP7ys441kO7xPurHY/ARdLA9HFHTRGWOw2UhSUJzsdbbhh4nBINSEgH/ZxTBJOfSgUwtScwbs+6Ug7VxGRfsuBvj78k+/loSB+A/5FeuS4cZX+AKvyfx+z88H74uYb38lIfJhGToI2jAkzdO8MBKVwMuq9+jxjx3EZoycfCQZlJcKMw53rvNalNzYyi8N4yyCNAB+bp9IQJUJpBtM94ZFdzkIkBWJ9fxq7l8l6/Ib5AS2iREw7viaD/7HUnGNpD4kGo4NOHF0PNOjpfRJL2qoCxxbRSZxUnjukeMV/eDi3e2GQMldGgxXLwl+M4Gd6qwIDAQAB",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:57638/*"
+  ],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "action": {
+    "default_title": "Read this page with Piper Reader"
+  }
+}

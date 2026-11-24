@@ -1,0 +1,7 @@
+::highlight(piper-reader-current) {
+  background-color: #b9ccff;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 92, 220, 0.35);
+  text-decoration-thickness: 0.08em;
+}

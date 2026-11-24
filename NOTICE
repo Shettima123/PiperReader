@@ -1,0 +1,17 @@
+PiperReader
+Copyright (C) 2026 Shettima123
+SPDX-License-Identifier: AGPL-3.0-only
+
+The original application code, tests, build scripts, documentation, and artwork
+in this repository are free software: you can redistribute them and/or modify
+them under the terms of the GNU Affero General Public License version 3 as
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See LICENSE for details.
+
+Third-party files and dependencies retain their respective copyright notices
+and licenses. See THIRD_PARTY_NOTICES.md and the notices accompanying those
+components. No rights in third-party online speech services or voice models
+are granted by this notice.

@@ -1,0 +1,19 @@
+{
+  "source": "https://github.com/tesseract-ocr/tessdata_fast",
+  "revision": "87416418657359cb625c412a48b6e1d6d41c29bd",
+  "license": "Apache-2.0",
+  "models": {
+    "eng": {
+      "filename": "eng.traineddata",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/87416418657359cb625c412a48b6e1d6d41c29bd/eng.traineddata",
+      "size": 4113088,
+      "sha256": "7D4322BD2A7749724879683FC3912CB542F19906C83BCC1A52132556427170B2"
+    },
+    "ara": {
+      "filename": "ara.traineddata",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/87416418657359cb625c412a48b6e1d6d41c29bd/ara.traineddata",
+      "size": 1432056,
+      "sha256": "E3206D3DC87FD50C24A0FB9F01838615911D25168F4E64415244B67D2BB3E729"
+    }
+  }
+}
