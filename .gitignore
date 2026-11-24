@@ -3,6 +3,8 @@
 /dist/
 /release/
 /build_assets/licenses/
+/build_assets/sources/
+/build_assets/native_audio/
 __pycache__/
 *.py[cod]
 .venv/

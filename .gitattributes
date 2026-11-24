@@ -1,0 +1,3 @@
+# Preserve verbatim upstream notices, including their original whitespace.
+licenses/** -text -whitespace
+build_tools/native_audio/licenses/** -text -whitespace

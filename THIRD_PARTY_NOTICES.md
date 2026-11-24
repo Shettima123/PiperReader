@@ -3,11 +3,18 @@
 PiperReader's original application code is licensed under AGPL-3.0-only; see
 the project LICENSE. Third-party components retain their original licenses.
 This file is a project-level summary, not a substitute for complete third-party
-license texts. This initial public release contains application source only.
-The bundled license and corresponding-source package must be completed before
-publishing Windows binaries.
+license texts. Public Windows release 1.6.5 includes the notices in `licenses/`
+and provides matching application and dependency sources on its release page.
+See SOURCE_CODE.md and `licenses/SOURCES.json` for exact source locations/hashes.
 
 ## Bundled runtime components
+
+Version 1.6.5 uses PyMuPDF 1.28.2 with its explicitly recorded MuPDF 1.28.2
+source archive. The audio library is built from unmodified libsndfile 1.2.2,
+mpg123 1.33.7, and LAME 3.100 sources, with the build recipe included in the
+application source. It retains WAV and MP3 support while omitting unused external
+FLAC/Ogg/Vorbis/Opus codecs. These components' full notices and sources accompany
+the release. The SoundFile Python wrapper retains its BSD license.
 
 The packaged runtime includes Python and third-party libraries. Important
 license families include:

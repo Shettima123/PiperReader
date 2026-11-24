@@ -11,10 +11,12 @@ $ProjectRoot = [System.IO.Path]::GetFullPath($PSScriptRoot)
 $BuildDirectory = Join-Path $ProjectRoot "build"
 $DistDirectory = Join-Path $ProjectRoot "dist"
 $ReleaseDirectory = Join-Path $ProjectRoot "release"
-$AppVersion = "1.6.4"
+$AppVersion = "1.6.5"
 $ExpectedOutput = Join-Path $ReleaseDirectory "PiperReaderSetup-$AppVersion.exe"
 $StandaloneOutput = Join-Path $ReleaseDirectory "PiperReaderStandalone-$AppVersion-x64.zip"
 $ChecksumOutput = Join-Path $ReleaseDirectory "SHA256SUMS-$AppVersion.txt"
+$DependencySourceOutput = Join-Path $ReleaseDirectory "PiperReader-$AppVersion-dependency-sources.zip"
+$SourcesManifest = Join-Path $ProjectRoot "build_assets\sources\SOURCES.json"
 $OcrAssetRoot = Join-Path $ProjectRoot "build_assets\ocr"
 $OcrManifestPath = Join-Path $OcrAssetRoot "MODELS.json"
 $OcrLicensePath = Join-Path $OcrAssetRoot "LICENSE"
@@ -48,6 +50,8 @@ Push-Location $ProjectRoot
 try {
     & $Python --version
     if ($LASTEXITCODE -ne 0) { throw "Python is unavailable." }
+    & $Python (Join-Path $ProjectRoot "build_tools\prepare_native_audio.py")
+    if ($LASTEXITCODE -ne 0) { throw "A verified source-built native audio decoder is required. See build_tools/native_audio/README.md." }
     & $Python -c "import PyInstaller, PIL, piper, kokoro_onnx, onnxruntime, pymupdf, edge_tts, soundfile, aiohttp, certifi"
     if ($LASTEXITCODE -ne 0) { throw "One or more build dependencies are unavailable." }
     & $Python (Join-Path $ProjectRoot "build_tools\check_online_dependencies.py")
@@ -95,7 +99,9 @@ try {
 
     & $Python (Join-Path $ProjectRoot "build_tools\create_icon.py")
     if ($LASTEXITCODE -ne 0) { throw "Icon generation failed." }
-    & $Python (Join-Path $ProjectRoot "build_tools\collect_licenses.py")
+    & $Python (Join-Path $ProjectRoot "build_tools\collect_sources.py")
+    if ($LASTEXITCODE -ne 0) { throw "Corresponding-source collection failed." }
+    & $Python (Join-Path $ProjectRoot "build_tools\collect_licenses.py") --sources-manifest $SourcesManifest
     if ($LASTEXITCODE -ne 0) { throw "Third-party license collection failed." }
 
     & $Python -m PyInstaller --noconfirm --clean (Join-Path $ProjectRoot "PiperReader.spec")
@@ -109,6 +115,11 @@ try {
     $BridgeTemplate = Join-Path $ProjectRoot "build_assets\bridge-config.template.js"
     if (-not (Test-Path -LiteralPath $PackagedExe -PathType Leaf)) {
         throw "PyInstaller did not create $PackagedExe"
+    }
+    $NativeAudioManifest = Get-Content -LiteralPath (Join-Path $ProjectRoot "build_assets\native_audio\build-manifest.json") -Raw | ConvertFrom-Json
+    $PackagedAudioHash = (Get-FileHash -LiteralPath (Join-Path $PackagedRoot "_internal\_soundfile_data\libsndfile_x64.dll") -Algorithm SHA256).Hash
+    if ($PackagedAudioHash -ne $NativeAudioManifest.dll_sha256) {
+        throw "The frozen package does not contain the verified native audio decoder."
     }
     if (-not (Test-Path -LiteralPath $PackagedBridgeTemplate -PathType Leaf)) {
         throw "The packaged browser extension is missing its safe bridge template."
@@ -140,6 +151,20 @@ try {
     $SanitizedConfig = Get-Content -LiteralPath $PackagedBridgeConfig -Raw
     if (-not $SanitizedConfig.Contains("__PIPER_TOKEN_GENERATED_ON_FIRST_RUN__")) {
         throw "The staged browser bridge configuration was not sanitized."
+    }
+
+    # Installer and portable archives share this exact distribution payload.
+    $PackagedLicenses = Join-Path $PackagedRoot "licenses"
+    New-Item -ItemType Directory -Path $PackagedLicenses -Force | Out-Null
+    Copy-Item -Path (Join-Path $ProjectRoot "build_assets\licenses\*") -Destination $PackagedLicenses -Recurse -Force
+    foreach ($NoticeName in @("LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md", "SOURCE_CODE.md")) {
+        Copy-Item -LiteralPath (Join-Path $ProjectRoot $NoticeName) -Destination (Join-Path $PackagedRoot $NoticeName) -Force
+    }
+    Copy-Item -LiteralPath $SourcesManifest -Destination (Join-Path $PackagedLicenses "SOURCES.json") -Force
+    Copy-Item -LiteralPath (Join-Path $ProjectRoot "build_assets\native_audio\build-manifest.json") -Destination (Join-Path $PackagedLicenses "NATIVE_AUDIO_BUILD.json") -Force
+    Copy-Item -LiteralPath (Join-Path $ProjectRoot "INSTALLER_README.md") -Destination (Join-Path $PackagedRoot "INSTALLATION_AND_DISTRIBUTION.md") -Force
+    if (-not (Test-Path -LiteralPath $DependencySourceOutput -PathType Leaf)) {
+        throw "The companion dependency-source archive is missing."
     }
 
     # Exercise the actual windowed executable without opening its UI. The
@@ -190,9 +215,11 @@ try {
 
     $InstallerHash = Get-FileHash -LiteralPath $ExpectedOutput -Algorithm SHA256
     $StandaloneHash = Get-FileHash -LiteralPath $StandaloneOutput -Algorithm SHA256
+    $DependencySourceHash = Get-FileHash -LiteralPath $DependencySourceOutput -Algorithm SHA256
     $ChecksumLines = @(
         "$($InstallerHash.Hash)  $([System.IO.Path]::GetFileName($ExpectedOutput))"
         "$($StandaloneHash.Hash)  $([System.IO.Path]::GetFileName($StandaloneOutput))"
+        "$($DependencySourceHash.Hash)  $([System.IO.Path]::GetFileName($DependencySourceOutput))"
     )
     [System.IO.File]::WriteAllText(
         $ChecksumOutput,

@@ -1,8 +1,8 @@
 # UTF-8
 VSVersionInfo(
   ffi=FixedFileInfo(
-    filevers=(1, 6, 4, 0),
-    prodvers=(1, 6, 4, 0),
+    filevers=(1, 6, 5, 0),
+    prodvers=(1, 6, 5, 0),
     mask=0x3f,
     flags=0x0,
     OS=0x40004,
@@ -17,12 +17,12 @@ VSVersionInfo(
         [
           StringStruct('CompanyName', 'Piper Reader'),
           StringStruct('FileDescription', 'Piper Reader text-to-speech application'),
-          StringStruct('FileVersion', '1.6.4.0'),
+          StringStruct('FileVersion', '1.6.5.0'),
           StringStruct('InternalName', 'PiperReader'),
           StringStruct('LegalCopyright', 'Copyright (c) Piper Reader contributors'),
           StringStruct('OriginalFilename', 'PiperReader.exe'),
           StringStruct('ProductName', 'Piper Reader'),
-          StringStruct('ProductVersion', '1.6.4')
+          StringStruct('ProductVersion', '1.6.5')
         ]
       )
     ]),

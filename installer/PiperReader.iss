@@ -1,5 +1,5 @@
 #define MyAppName "Piper Reader"
-#define MyAppVersion "1.6.4"
+#define MyAppVersion "1.6.5"
 #define MyAppPublisher "Piper Reader"
 #define MyAppExeName "PiperReader.exe"
 
@@ -26,7 +26,7 @@ CloseApplicationsFilter={#MyAppExeName}
 RestartApplications=no
 ChangesEnvironment=no
 ChangesAssociations=no
-VersionInfoVersion=1.6.4.0
+VersionInfoVersion=1.6.5.0
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoDescription={#MyAppName} installer
 VersionInfoProductName={#MyAppName}
@@ -38,9 +38,6 @@ Name: "desktopicon"; Description: "Create a desktop shortcut"; GroupDescription:
 
 [Files]
 Source: "..\dist\PiperReader\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\THIRD_PARTY_NOTICES.md"; DestDir: "{app}\licenses"; DestName: "PIPER_READER_THIRD_PARTY_NOTICES.md"; Flags: ignoreversion
-Source: "..\build_assets\licenses\*"; DestDir: "{app}\licenses"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\INSTALLER_README.md"; DestDir: "{app}"; DestName: "INSTALLATION_AND_DISTRIBUTION.md"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"

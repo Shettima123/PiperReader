@@ -1,0 +1,891 @@
+{
+  "schema_version": 1,
+  "description": "Pinned dependency sources for PiperReader; upstream authors retain their licenses.",
+  "application_source": "https://github.com/Shettima123/PiperReader",
+  "notice_only_packages": {
+    "onnxruntime": {
+      "version": "1.26.0",
+      "reason": "MIT-licensed runtime: no upstream sdist, v1.26.0 tag, or publicly resolvable build commit8c546c37b4 was available; complete wheel notices are included.",
+      "source_url": "https://github.com/microsoft/onnxruntime"
+    }
+  },
+  "artifacts": [
+    {
+      "id": "aiohappyeyeballs",
+      "component": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "packages": {
+        "aiohappyeyeballs": "2.7.1"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/aiohappyeyeballs/2.7.1/json",
+      "filename": "aiohappyeyeballs-2.7.1.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/ce/f4/eec0465c2f67b2664688d0240b3212d5196fd89e741df67ddb81f8d35658/aiohappyeyeballs-2.7.1.tar.gz",
+      "sha256": "065665c041c42a5938ed220bdcd7230f22527fbec085e1853d2402c8a3615d9d",
+      "size": 24757
+    },
+    {
+      "id": "aiohttp",
+      "component": "aiohttp",
+      "version": "3.14.3",
+      "packages": {
+        "aiohttp": "3.14.3"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/aiohttp/3.14.3/json",
+      "filename": "aiohttp-3.14.3.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz",
+      "sha256": "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc",
+      "size": 7971213
+    },
+    {
+      "id": "aiosignal",
+      "component": "aiosignal",
+      "version": "1.4.0",
+      "packages": {
+        "aiosignal": "1.4.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/aiosignal/1.4.0/json",
+      "filename": "aiosignal-1.4.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/61/62/06741b579156360248d1ec624842ad0edf697050bbaf7c3e46394e106ad1/aiosignal-1.4.0.tar.gz",
+      "sha256": "f47eecd9468083c2029cc99945502cb7708b082c232f9aca65da147157b251c7",
+      "size": 25007
+    },
+    {
+      "id": "attrs",
+      "component": "attrs",
+      "version": "26.1.0",
+      "packages": {
+        "attrs": "26.1.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/attrs/26.1.0/json",
+      "filename": "attrs-26.1.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz",
+      "sha256": "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32",
+      "size": 952055
+    },
+    {
+      "id": "babel",
+      "component": "babel",
+      "version": "2.18.0",
+      "packages": {
+        "babel": "2.18.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/babel/2.18.0/json",
+      "filename": "babel-2.18.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/7d/b2/51899539b6ceeeb420d40ed3cd4b7a40519404f9baf3d4ac99dc413a834b/babel-2.18.0.tar.gz",
+      "sha256": "b80b99a14bd085fcacfa15c9165f651fbb3406e66cc603abf11c5750937c992d",
+      "size": 9959554
+    },
+    {
+      "id": "certifi",
+      "component": "certifi",
+      "version": "2026.7.22",
+      "packages": {
+        "certifi": "2026.7.22"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/certifi/2026.7.22/json",
+      "filename": "certifi-2026.7.22.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/a3/c2/24167ea9858356b47a87a50d39908bfdb72ceeefe0041586e704e5376b3a/certifi-2026.7.22.tar.gz",
+      "sha256": "741e2c3b351ddf169a738da9f2c048608ff7f2c5cc02f1ebc6b118bb090d5d55",
+      "size": 138112
+    },
+    {
+      "id": "cffi",
+      "component": "cffi",
+      "version": "2.1.0",
+      "packages": {
+        "cffi": "2.1.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/cffi/2.1.0/json",
+      "filename": "cffi-2.1.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/57/5f/ff100cae70ebe9d8df1c01a00e510e45d9adb5c1fdda84791b199141de97/cffi-2.1.0.tar.gz",
+      "sha256": "efc1cdd798b1aaf39b4610bba7aad28c9bea9b910f25c784ccf9ec1fa719d1f9",
+      "size": 531036
+    },
+    {
+      "id": "csvw",
+      "component": "csvw",
+      "version": "4.0.0",
+      "packages": {
+        "csvw": "4.0.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/csvw/4.0.0/json",
+      "filename": "csvw-4.0.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/33/50/ff0bd8c3663dad0dae929775a6078c5bb7f4038d93032369786b1fe6a91c/csvw-4.0.0.tar.gz",
+      "sha256": "060e9bedf3c274d0fce6d6f7f892a16cc8c72f39c2bc49b69b5f0858fb2f6217",
+      "size": 83025
+    },
+    {
+      "id": "dlinfo",
+      "component": "dlinfo",
+      "version": "2.0.0",
+      "packages": {
+        "dlinfo": "2.0.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/dlinfo/2.0.0/json",
+      "filename": "dlinfo-2.0.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/85/8e/8f2f94cd40af1b51e8e371a83b385d622170d42f98776441a6118f4dd682/dlinfo-2.0.0.tar.gz",
+      "sha256": "88a2bc04f51d01bc604cdc9eb1c3cc0bde89057532ca6a3e71a41f6235433e17",
+      "size": 12727
+    },
+    {
+      "id": "edge-tts",
+      "component": "edge-tts",
+      "version": "7.2.8+ba61d94",
+      "packages": {
+        "edge-tts": "7.2.8"
+      },
+      "kind": "upstream-source",
+      "revision": "ba61d94442c18893f0c4d3c5ad253718b21ab93e",
+      "filename": "edge-tts-ba61d94442c18893f0c4d3c5ad253718b21ab93e.tar.gz",
+      "url": "https://codeload.github.com/rany2/edge-tts/tar.gz/ba61d94442c18893f0c4d3c5ad253718b21ab93e",
+      "provenance_url": "https://github.com/rany2/edge-tts/tree/ba61d94442c18893f0c4d3c5ad253718b21ab93e",
+      "sha256": "9378ad29839653e2238d3d56ba9deb6e03c8bab92689f4cb7c2ce298690eb6c3",
+      "size": 133650
+    },
+    {
+      "id": "espeak-ng-loader-native",
+      "component": "espeak-ng-loader-native",
+      "version": "1.52.0",
+      "packages": {},
+      "kind": "upstream-source",
+      "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "filename": "espeak-ng-loader-native-4870adfa25b1a32b4361592f1be8a40337c58d6c.tar.gz",
+      "url": "https://codeload.github.com/espeak-ng/espeak-ng/tar.gz/4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "provenance_url": "https://github.com/espeak-ng/espeak-ng/tree/4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "sha256": "cd83f84c4e495f281ac14e919aecf2834306ec1ea1b498de8ef6000f3a0f90de",
+      "size": 17747711
+    },
+    {
+      "id": "espeak-ng-piper-native",
+      "component": "espeak-ng-piper-native",
+      "version": "212928b",
+      "packages": {},
+      "kind": "upstream-source",
+      "revision": "212928b394a96e8fd2096616bfd54e17845c48f6",
+      "filename": "espeak-ng-piper-native-212928b394a96e8fd2096616bfd54e17845c48f6.tar.gz",
+      "url": "https://codeload.github.com/espeak-ng/espeak-ng/tar.gz/212928b394a96e8fd2096616bfd54e17845c48f6",
+      "provenance_url": "https://github.com/espeak-ng/espeak-ng/tree/212928b394a96e8fd2096616bfd54e17845c48f6",
+      "sha256": "1f201cabc73e569a7cb434d40d3b30980f923010f8ecd4d1c4ae94691ac2888a",
+      "size": 17815706
+    },
+    {
+      "id": "espeakng-loader",
+      "component": "espeakng-loader",
+      "version": "0.2.4",
+      "packages": {
+        "espeakng-loader": "0.2.4"
+      },
+      "kind": "upstream-source",
+      "revision": "146599e29be31bf17d99f0bcb7dbb2f92aef3d95",
+      "filename": "espeakng-loader-146599e29be31bf17d99f0bcb7dbb2f92aef3d95.tar.gz",
+      "url": "https://codeload.github.com/thewh1teagle/espeakng-loader/tar.gz/146599e29be31bf17d99f0bcb7dbb2f92aef3d95",
+      "provenance_url": "https://github.com/thewh1teagle/espeakng-loader/tree/146599e29be31bf17d99f0bcb7dbb2f92aef3d95",
+      "sha256": "d6496114cd0608988f5291f54d2d15b50cb37b7f007af00bb62cf93be1b3ceca",
+      "size": 3935,
+      "requires": [
+        "espeak-ng-loader-native",
+        "espeakng-loader-license-grant"
+      ]
+    },
+    {
+      "id": "espeakng-loader-license-grant",
+      "component": "espeakng-loader MIT publication with identical runtime code",
+      "version": "0ddc87adf77e5850d7eeb542ac8a87d421b64daa",
+      "packages": {
+        "espeakng-loader": "0.2.4"
+      },
+      "kind": "license-provenance-source",
+      "revision": "0ddc87adf77e5850d7eeb542ac8a87d421b64daa",
+      "filename": "espeakng-loader-license-grant-0ddc87adf77e5850d7eeb542ac8a87d421b64daa.tar.gz",
+      "url": "https://codeload.github.com/thewh1teagle/espeakng-loader/tar.gz/0ddc87adf77e5850d7eeb542ac8a87d421b64daa",
+      "size": 4595,
+      "sha256": "c52fde6a08f790dc9f150b68205a35d3ce0aa95dbd5fa8be7b22989b26d1ba09"
+    },
+    {
+      "id": "flatbuffers",
+      "component": "flatbuffers",
+      "version": "25.12.19",
+      "packages": {
+        "flatbuffers": "25.12.19"
+      },
+      "kind": "upstream-source",
+      "revision": "7e163021e59cca4f8e1e35a7c828b5c6b7915953",
+      "filename": "flatbuffers-7e163021e59cca4f8e1e35a7c828b5c6b7915953.tar.gz",
+      "url": "https://codeload.github.com/google/flatbuffers/tar.gz/7e163021e59cca4f8e1e35a7c828b5c6b7915953",
+      "provenance_url": "https://github.com/google/flatbuffers/tree/7e163021e59cca4f8e1e35a7c828b5c6b7915953",
+      "sha256": "4236c5d22309abeac2384d3800febcc8d60423e8cb2f573abfa8f798352c4536",
+      "size": 2359249
+    },
+    {
+      "id": "frozenlist",
+      "component": "frozenlist",
+      "version": "1.8.0",
+      "packages": {
+        "frozenlist": "1.8.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/frozenlist/1.8.0/json",
+      "filename": "frozenlist-1.8.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/2d/f5/c831fac6cc817d26fd54c7eaccd04ef7e0288806943f7cc5bbf69f3ac1f0/frozenlist-1.8.0.tar.gz",
+      "sha256": "3ede829ed8d842f6cd48fc7081d7a41001a56f1f38603f9d49bf3020d59a31ad",
+      "size": 45875
+    },
+    {
+      "id": "idna",
+      "component": "idna",
+      "version": "3.19",
+      "packages": {
+        "idna": "3.19"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/idna/3.19/json",
+      "filename": "idna-3.19.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz",
+      "sha256": "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15",
+      "size": 215237
+    },
+    {
+      "id": "isodate",
+      "component": "isodate",
+      "version": "0.7.2",
+      "packages": {
+        "isodate": "0.7.2"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/isodate/0.7.2/json",
+      "filename": "isodate-0.7.2.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/54/4d/e940025e2ce31a8ce1202635910747e5a87cc3a6a6bb2d00973375014749/isodate-0.7.2.tar.gz",
+      "sha256": "4cd1aa0f43ca76f4a6c6c0292a85f40b35ec2e43e315b59f06e6d32171a953e6",
+      "size": 29705
+    },
+    {
+      "id": "joblib",
+      "component": "joblib",
+      "version": "1.5.3",
+      "packages": {
+        "joblib": "1.5.3"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/joblib/1.5.3/json",
+      "filename": "joblib-1.5.3.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/41/f2/d34e8b3a08a9cc79a50b2208a93dce981fe615b64d5a4d4abee421d898df/joblib-1.5.3.tar.gz",
+      "sha256": "8561a3269e6801106863fd0d6d84bb737be9e7631e33aaed3fb9ce5953688da3",
+      "size": 331603
+    },
+    {
+      "id": "jsonschema",
+      "component": "jsonschema",
+      "version": "4.26.0",
+      "packages": {
+        "jsonschema": "4.26.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/jsonschema/4.26.0/json",
+      "filename": "jsonschema-4.26.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/b3/fc/e067678238fa451312d4c62bf6e6cf5ec56375422aee02f9cb5f909b3047/jsonschema-4.26.0.tar.gz",
+      "sha256": "0c26707e2efad8aa1bfc5b7ce170f3fccc2e4918ff85989ba9ffa9facb2be326",
+      "size": 366583
+    },
+    {
+      "id": "jsonschema-specifications",
+      "component": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "packages": {
+        "jsonschema-specifications": "2025.9.1"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/jsonschema-specifications/2025.9.1/json",
+      "filename": "jsonschema_specifications-2025.9.1.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/19/74/a633ee74eb36c44aa6d1095e7cc5569bebf04342ee146178e2d36600708b/jsonschema_specifications-2025.9.1.tar.gz",
+      "sha256": "b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d",
+      "size": 32855
+    },
+    {
+      "id": "kokoro-onnx",
+      "component": "kokoro-onnx",
+      "version": "0.5.0",
+      "packages": {
+        "kokoro-onnx": "0.5.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/kokoro-onnx/0.5.0/json",
+      "filename": "kokoro_onnx-0.5.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/6b/18/277bd18aeeceaf5c46a51bb50c1cbdccdad8cab7fd1d58f0173bbeeec708/kokoro_onnx-0.5.0.tar.gz",
+      "sha256": "5beb15f085e2828ed8d493f792c079af857103ab2dceaa1e112b1760587ac96a",
+      "size": 84570
+    },
+    {
+      "id": "lame",
+      "component": "lame",
+      "version": "3.100",
+      "packages": {},
+      "kind": "native-audio-source",
+      "filename": "lame-3.100.tar.gz",
+      "url": "https://downloads.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz",
+      "sha256": "ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e",
+      "size": 1524133,
+      "license": "LGPL-2.0-or-later"
+    },
+    {
+      "id": "language-tags",
+      "component": "language-tags",
+      "version": "1.3.1",
+      "packages": {
+        "language-tags": "1.3.1"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/language-tags/1.3.1/json",
+      "filename": "language_tags-1.3.1.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/39/d1/b37165bed9016c19e2cdecf4176fbd902a014fb8a87dd44415438e190969/language_tags-1.3.1.tar.gz",
+      "sha256": "b15f05505dad3ad296a1782d5a6083fd141309186094d1ab08095348f4203f37",
+      "size": 222642
+    },
+    {
+      "id": "libsndfile",
+      "component": "libsndfile",
+      "version": "1.2.2",
+      "packages": {},
+      "kind": "native-audio-source",
+      "filename": "libsndfile-1.2.2.tar.xz",
+      "url": "https://github.com/libsndfile/libsndfile/releases/download/1.2.2/libsndfile-1.2.2.tar.xz",
+      "sha256": "3799ca9924d3125038880367bf1468e53a1b7e3686a934f098b7e1d286cdb80e",
+      "size": 730760,
+      "license": "LGPL-2.1-or-later"
+    },
+    {
+      "id": "lxml",
+      "component": "lxml",
+      "version": "6.1.1",
+      "packages": {
+        "lxml": "6.1.1"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/lxml/6.1.1/json",
+      "filename": "lxml-6.1.1.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/05/3b/aab6728cae887456f409b4d75e8a01856e4f04bd510de38052a47768b680/lxml-6.1.1.tar.gz",
+      "sha256": "ba96ae44888e0185281e937633a743ea90d5a196c6000f82565ebb0580012d40",
+      "size": 4197430
+    },
+    {
+      "id": "mpg123",
+      "component": "mpg123",
+      "version": "1.33.7",
+      "packages": {},
+      "kind": "native-audio-source",
+      "filename": "mpg123-1.33.7.tar.bz2",
+      "url": "https://www.mpg123.de/download/mpg123-1.33.7.tar.bz2",
+      "sha256": "31d0e35a4ca567ec9b5ebda6c3062bb4435d6d3eacd6ef0d95cadd7854dc03ee",
+      "size": 1126376,
+      "license": "LGPL-2.1-or-later"
+    },
+    {
+      "id": "multidict",
+      "component": "multidict",
+      "version": "6.8.0",
+      "packages": {
+        "multidict": "6.8.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/multidict/6.8.0/json",
+      "filename": "multidict-6.8.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/14/95/989c1b5ca17b72128661530cd6e351a0a83cda9a4d6c036e9ed976c18931/multidict-6.8.0.tar.gz",
+      "sha256": "5cd4637ce76312ba1e05eb9c5193fec231f64fee0944e135fa1e951242355b37",
+      "size": 122412
+    },
+    {
+      "id": "mupdf",
+      "component": "MuPDF and bundled third-party sources",
+      "version": "1.28.2",
+      "packages": {},
+      "kind": "native-source",
+      "filename": "mupdf-1.28.2-source.tar.gz",
+      "url": "https://mupdf.com/downloads/archive/mupdf-1.28.2-source.tar.gz",
+      "sha256": "44075a84e329db55b9bef5f342a70fd26d69e48ad1d33cb89d9664581c641156",
+      "size": 68898646
+    },
+    {
+      "id": "numpy",
+      "component": "numpy",
+      "version": "2.4.6",
+      "packages": {
+        "numpy": "2.4.6"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/numpy/2.4.6/json",
+      "filename": "numpy-2.4.6.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/d0/ad/fed0499ce6a338d2a03ebae59cd15093910c8875328855781952abf6c2fe/numpy-2.4.6.tar.gz",
+      "sha256": "f3a3570c4a2a16746ac2c31a7c7c7b0c186b95ce902e33db6f28094ed7387dda",
+      "size": 20735807
+    },
+    {
+      "id": "packaging",
+      "component": "packaging",
+      "version": "26.2",
+      "packages": {
+        "packaging": "26.2"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/packaging/26.2/json",
+      "filename": "packaging-26.2.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz",
+      "sha256": "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661",
+      "size": 228134
+    },
+    {
+      "id": "pathvalidate",
+      "component": "pathvalidate",
+      "version": "3.3.1",
+      "packages": {
+        "pathvalidate": "3.3.1"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/pathvalidate/3.3.1/json",
+      "filename": "pathvalidate-3.3.1.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/fa/2a/52a8da6fe965dea6192eb716b357558e103aea0a1e9a8352ad575a8406ca/pathvalidate-3.3.1.tar.gz",
+      "sha256": "b18c07212bfead624345bb8e1d6141cdcf15a39736994ea0b94035ad2b1ba177",
+      "size": 63262
+    },
+    {
+      "id": "phonemizer-fork",
+      "component": "phonemizer-fork",
+      "version": "3.3.2",
+      "packages": {
+        "phonemizer-fork": "3.3.2"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/phonemizer-fork/3.3.2/json",
+      "filename": "phonemizer_fork-3.3.2.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/42/fa/9294d2f11890ca49d0bdac7a4da60cbe5686629bfd4987cae0ad75e051cc/phonemizer_fork-3.3.2.tar.gz",
+      "sha256": "10e16e827d0443b087062e21b55e805c00989cf1343b2e81e734cae5f6c0cf69",
+      "size": 300989
+    },
+    {
+      "id": "pillow",
+      "component": "pillow",
+      "version": "12.3.0",
+      "packages": {
+        "pillow": "12.3.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/pillow/12.3.0/json",
+      "filename": "pillow-12.3.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/1c/3d/bb7fca845737cf9d7dbde16ed1843984665ff2e0a518f5db43e77ec540b9/pillow-12.3.0.tar.gz",
+      "sha256": "3b8182a766685eaa002637e28b4ec8d6b18819a0c71f579bf0dbaa5830297cce",
+      "size": 47025035
+    },
+    {
+      "id": "piper-build-repository",
+      "component": "piper-build-repository",
+      "version": "1.4.2",
+      "packages": {},
+      "kind": "upstream-source",
+      "revision": "d6975e21a440c0d8b6e5fb7c41027409af13d44d",
+      "filename": "piper-build-repository-d6975e21a440c0d8b6e5fb7c41027409af13d44d.tar.gz",
+      "url": "https://codeload.github.com/OHF-Voice/piper1-gpl/tar.gz/d6975e21a440c0d8b6e5fb7c41027409af13d44d",
+      "provenance_url": "https://github.com/OHF-Voice/piper1-gpl/tree/d6975e21a440c0d8b6e5fb7c41027409af13d44d",
+      "sha256": "ebf535912b5760e33ff5c01a483bfc9c58b13c18c7c6ccfb4cec0184dc14f747",
+      "size": 4836428
+    },
+    {
+      "id": "piper-tts",
+      "component": "piper-tts",
+      "version": "1.4.2",
+      "packages": {
+        "piper-tts": "1.4.2"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/piper-tts/1.4.2/json",
+      "filename": "piper_tts-1.4.2.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/86/53/3c636c4250e8cb489c50c6dda9d64400518e8c6600576850104b3232b562/piper_tts-1.4.2.tar.gz",
+      "sha256": "dbe7e5391d7657f8a5f2b7ce7cdbafc5bbc559de2af15e5299ce298323eade51",
+      "size": 4364835,
+      "requires": [
+        "espeak-ng-piper-native",
+        "piper-build-repository"
+      ]
+    },
+    {
+      "id": "propcache",
+      "component": "propcache",
+      "version": "0.5.2",
+      "packages": {
+        "propcache": "0.5.2"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/propcache/0.5.2/json",
+      "filename": "propcache-0.5.2.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/ec/44/c87281c333769159c50594f22610f77398a47ccbfbbf23074e744e86f87c/propcache-0.5.2.tar.gz",
+      "sha256": "01c4fc7480cd0598bb4b57022df55b9ca296da7fc5a8760bd8451a7e63a7d427",
+      "size": 50208
+    },
+    {
+      "id": "protobuf",
+      "component": "protobuf",
+      "version": "7.35.0",
+      "packages": {
+        "protobuf": "7.35.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/protobuf/7.35.0/json",
+      "filename": "protobuf-7.35.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/60/fd/5b1491d9e4b586d621c54f4c36b888714164b6875f8d6afa3f9072906a51/protobuf-7.35.0.tar.gz",
+      "sha256": "a2efd84605f41e559f1881b0912b44099d0a2ac9bf46b3474823f10fb393b0e6",
+      "size": 458677
+    },
+    {
+      "id": "pycparser",
+      "component": "pycparser",
+      "version": "3.0",
+      "packages": {
+        "pycparser": "3.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/pycparser/3.0/json",
+      "filename": "pycparser-3.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/1b/7d/92392ff7815c21062bea51aa7b87d45576f649f16458d78b7cf94b9ab2e6/pycparser-3.0.tar.gz",
+      "sha256": "600f49d217304a5902ac3c37e1281c9fe94e4d0489de643a9504c5cdfdfc6b29",
+      "size": 103492
+    },
+    {
+      "id": "pyinstaller",
+      "component": "pyinstaller",
+      "version": "6.21.0",
+      "packages": {
+        "pyinstaller": "6.21.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/pyinstaller/6.21.0/json",
+      "filename": "pyinstaller-6.21.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/d5/4d/ec706c3fcf39e26888c35b39615ff4d5865d184069666c47492cff1fbe50/pyinstaller-6.21.0.tar.gz",
+      "sha256": "bb9fab705983e393a2d1cac77d6972513057ad800215fd861dc15ff5272e98fd",
+      "size": 4061519
+    },
+    {
+      "id": "pymupdf",
+      "component": "PyMuPDF",
+      "version": "1.28.2",
+      "packages": {
+        "pymupdf": "1.28.2"
+      },
+      "kind": "python-sdist",
+      "filename": "pymupdf-1.28.2.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/a3/fb/b6761fa2d5266f2cdb24c3b91f4023070ab7848381417678e7a289a1d52a/pymupdf-1.28.2.tar.gz",
+      "sha256": "5e0be7908a715aa20333caddd73f1d6f01e4cd0c26e869fa2dd0b7f344da2249",
+      "size": 87903557,
+      "requires": [
+        "mupdf"
+      ]
+    },
+    {
+      "id": "pyparsing",
+      "component": "pyparsing",
+      "version": "3.3.2",
+      "packages": {
+        "pyparsing": "3.3.2"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/pyparsing/3.3.2/json",
+      "filename": "pyparsing-3.3.2.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz",
+      "sha256": "c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc",
+      "size": 6851574
+    },
+    {
+      "id": "pypdf",
+      "component": "pypdf",
+      "version": "6.14.2",
+      "packages": {
+        "pypdf": "6.14.2"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/pypdf/6.14.2/json",
+      "filename": "pypdf-6.14.2.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/03/72/7dfd5ff1c9c37de97a731701f51af091325f123d9d4270361c9c69e4431f/pypdf-6.14.2.tar.gz",
+      "sha256": "7873f502fe4385e79539b21d872392dc0c4e3714327c15881cbc7fbfd1f95b25",
+      "size": 6491182
+    },
+    {
+      "id": "pystray",
+      "component": "pystray",
+      "version": "0.19.5",
+      "packages": {
+        "pystray": "0.19.5"
+      },
+      "kind": "upstream-source",
+      "revision": "1907f8681d6d421517c63d94f425f9cdd74d0034",
+      "filename": "pystray-1907f8681d6d421517c63d94f425f9cdd74d0034.tar.gz",
+      "url": "https://codeload.github.com/moses-palmer/pystray/tar.gz/1907f8681d6d421517c63d94f425f9cdd74d0034",
+      "provenance_url": "https://github.com/moses-palmer/pystray/tree/1907f8681d6d421517c63d94f425f9cdd74d0034",
+      "sha256": "2df980e432f349815c8b1e88f910c085c161a17ce7294f73a0e8d7651c5d9bac",
+      "size": 48172
+    },
+    {
+      "id": "python",
+      "component": "CPython",
+      "version": "3.12.10",
+      "packages": {},
+      "kind": "system-source",
+      "filename": "Python-3.12.10.tgz",
+      "url": "https://www.python.org/ftp/python/3.12.10/Python-3.12.10.tgz",
+      "sha256": "15d9c623abfd2165fe816ea1fb385d6ed8cf3c664661ab357f1782e3036a6dac",
+      "size": 27122929
+    },
+    {
+      "id": "python-dateutil",
+      "component": "python-dateutil",
+      "version": "2.9.0.post0",
+      "packages": {
+        "python-dateutil": "2.9.0.post0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/python-dateutil/2.9.0.post0/json",
+      "filename": "python-dateutil-2.9.0.post0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz",
+      "sha256": "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3",
+      "size": 342432
+    },
+    {
+      "id": "pywin32",
+      "component": "pywin32",
+      "version": "312",
+      "packages": {
+        "pywin32": "312"
+      },
+      "kind": "upstream-source",
+      "revision": "2a277cb5552756c2b4d42b524dc36d25e0bb6354",
+      "filename": "pywin32-2a277cb5552756c2b4d42b524dc36d25e0bb6354.tar.gz",
+      "url": "https://codeload.github.com/mhammond/pywin32/tar.gz/2a277cb5552756c2b4d42b524dc36d25e0bb6354",
+      "provenance_url": "https://github.com/mhammond/pywin32/tree/2a277cb5552756c2b4d42b524dc36d25e0bb6354",
+      "sha256": "c5900d127ffd1b4594080925e343725f8b896423d57e96f66863f443e9098da6",
+      "size": 4812587
+    },
+    {
+      "id": "rdflib",
+      "component": "rdflib",
+      "version": "7.6.0",
+      "packages": {
+        "rdflib": "7.6.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/rdflib/7.6.0/json",
+      "filename": "rdflib-7.6.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/98/f5/18bb77b7af9526add0c727a3b2048959847dc5fb030913e2918bf384fec3/rdflib-7.6.0.tar.gz",
+      "sha256": "6c831288d5e4a5a7ece85d0ccde9877d512a3d0f02d7c06455d00d6d0ea379df",
+      "size": 4943826
+    },
+    {
+      "id": "referencing",
+      "component": "referencing",
+      "version": "0.37.0",
+      "packages": {
+        "referencing": "0.37.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/referencing/0.37.0/json",
+      "filename": "referencing-0.37.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/22/f5/df4e9027acead3ecc63e50fe1e36aca1523e1719559c499951bb4b53188f/referencing-0.37.0.tar.gz",
+      "sha256": "44aefc3142c5b842538163acb373e24cce6632bd54bdb01b21ad5863489f50d8",
+      "size": 78036
+    },
+    {
+      "id": "regex",
+      "component": "regex",
+      "version": "2026.5.9",
+      "packages": {
+        "regex": "2026.5.9"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/regex/2026.5.9/json",
+      "filename": "regex-2026.5.9.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/dc/0e/49aee608ad09480e7fd276898c99ec6192985fa331abe4eb3a986094490b/regex-2026.5.9.tar.gz",
+      "sha256": "a8234aa23ec39894bfe4a3f1b85616a7032481964a13ac6fc9f10de4f6fca270",
+      "size": 416074
+    },
+    {
+      "id": "rfc3986",
+      "component": "rfc3986",
+      "version": "1.5.0",
+      "packages": {
+        "rfc3986": "1.5.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/rfc3986/1.5.0/json",
+      "filename": "rfc3986-1.5.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/79/30/5b1b6c28c105629cc12b33bdcbb0b11b5bb1880c6cfbd955f9e792921aa8/rfc3986-1.5.0.tar.gz",
+      "sha256": "270aaf10d87d0d4e095063c65bf3ddbc6ee3d0b226328ce21e036f946e421835",
+      "size": 49378
+    },
+    {
+      "id": "rpds-py",
+      "component": "rpds-py",
+      "version": "2026.5.1",
+      "packages": {
+        "rpds-py": "2026.5.1"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/rpds-py/2026.5.1/json",
+      "filename": "rpds_py-2026.5.1.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/2e/43/25a8dcd3feedd735039a8f0b5b7e3b118232b5eae288c4fd9ab200d41094/rpds_py-2026.5.1.tar.gz",
+      "sha256": "07b24fea40541e28570e5b795a4a38fbdcd12550c06bd0748005ecc8116ca256",
+      "size": 64459
+    },
+    {
+      "id": "segments",
+      "component": "segments",
+      "version": "2.4.0",
+      "packages": {
+        "segments": "2.4.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/segments/2.4.0/json",
+      "filename": "segments-2.4.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/8b/57/85cac3a8e32370e88fa5fa92812edb6025db7fcbed51452bd56ee1524957/segments-2.4.0.tar.gz",
+      "sha256": "bba71f5520ddd54c8aa2f4d765a60618c6862162d6e7356a4a097f2223166f5b",
+      "size": 18662
+    },
+    {
+      "id": "six",
+      "component": "six",
+      "version": "1.17.0",
+      "packages": {
+        "six": "1.17.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/six/1.17.0/json",
+      "filename": "six-1.17.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz",
+      "sha256": "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81",
+      "size": 34031
+    },
+    {
+      "id": "soundfile",
+      "component": "soundfile",
+      "version": "0.13.1",
+      "packages": {
+        "soundfile": "0.13.1"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/soundfile/0.13.1/json",
+      "filename": "soundfile-0.13.1.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/e1/41/9b873a8c055582859b239be17902a85339bec6a30ad162f98c9b0288a2cc/soundfile-0.13.1.tar.gz",
+      "sha256": "b2c68dab1e30297317080a5b43df57e302584c49e2942defdde0acccc53f0e5b",
+      "size": 46156,
+      "requires": [
+        "libsndfile",
+        "mpg123",
+        "lame"
+      ]
+    },
+    {
+      "id": "tabulate",
+      "component": "tabulate",
+      "version": "0.10.0",
+      "packages": {
+        "tabulate": "0.10.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/tabulate/0.10.0/json",
+      "filename": "tabulate-0.10.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz",
+      "sha256": "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d",
+      "size": 91754
+    },
+    {
+      "id": "tcl",
+      "component": "tcl",
+      "version": "8.6.15",
+      "packages": {},
+      "kind": "system-source",
+      "revision": "1a98213e55128c8a2136379fedfaef0c8e15320b",
+      "url": "https://codeload.github.com/tcltk/tcl/tar.gz/1a98213e55128c8a2136379fedfaef0c8e15320b",
+      "filename": "tcl-8.6.15-1a98213e55128c8a2136379fedfaef0c8e15320b.tar.gz",
+      "sha256": "814f874e4a6ec2ff685bff36260548b1991f32132ebc2b6c16039bbc31971f0c",
+      "size": 8107106
+    },
+    {
+      "id": "termcolor",
+      "component": "termcolor",
+      "version": "3.3.0",
+      "packages": {
+        "termcolor": "3.3.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/termcolor/3.3.0/json",
+      "filename": "termcolor-3.3.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/46/79/cf31d7a93a8fdc6aa0fbb665be84426a8c5a557d9240b6239e9e11e35fc5/termcolor-3.3.0.tar.gz",
+      "sha256": "348871ca648ec6a9a983a13ab626c0acce02f515b9e1983332b17af7979521c5",
+      "size": 14434
+    },
+    {
+      "id": "tk",
+      "component": "tk",
+      "version": "8.6.15",
+      "packages": {},
+      "kind": "system-source",
+      "revision": "3c4a7176319e29a790ff82c80e3c3ff74f523ffb",
+      "url": "https://codeload.github.com/tcltk/tk/tar.gz/3c4a7176319e29a790ff82c80e3c3ff74f523ffb",
+      "filename": "tk-8.6.15-3c4a7176319e29a790ff82c80e3c3ff74f523ffb.tar.gz",
+      "sha256": "68ab9286d3c4f98452d50d729e11f7bdc969cde5ced6cab9d0ed5cf8350f7256",
+      "size": 4616306
+    },
+    {
+      "id": "typing_extensions",
+      "component": "typing_extensions",
+      "version": "4.15.0",
+      "packages": {
+        "typing_extensions": "4.15.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/typing_extensions/4.15.0/json",
+      "filename": "typing_extensions-4.15.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz",
+      "sha256": "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466",
+      "size": 109391
+    },
+    {
+      "id": "uritemplate",
+      "component": "uritemplate",
+      "version": "4.2.0",
+      "packages": {
+        "uritemplate": "4.2.0"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/uritemplate/4.2.0/json",
+      "filename": "uritemplate-4.2.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/98/60/f174043244c5306c9988380d2cb10009f91563fc4b31293d27e17201af56/uritemplate-4.2.0.tar.gz",
+      "sha256": "480c2ed180878955863323eea31b0ede668795de182617fef9c6ca09e6ec9d0e",
+      "size": 33267
+    },
+    {
+      "id": "yarl",
+      "component": "yarl",
+      "version": "1.24.5",
+      "packages": {
+        "yarl": "1.24.5"
+      },
+      "kind": "python-sdist",
+      "metadata_url": "https://pypi.org/pypi/yarl/1.24.5/json",
+      "filename": "yarl-1.24.5.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/31/33/ebe9e3d1f86c7a0b51094c0a146392045ca1631d2664889539dec8088a33/yarl-1.24.5.tar.gz",
+      "sha256": "e81b83143bee16329c23db3c1b2d82b29892fcbcb849186d2f6e98a5abe9a57f",
+      "size": 228679
+    }
+  ],
+  "runtime_file_checks": [
+    {
+      "package": "espeakng-loader",
+      "relative_path": "espeakng_loader/__init__.py",
+      "sha256_lf": "3900f0b174feebccb8991fd6f3888f037c7bfa23d9a3bdec480e894f75b03f3f",
+      "reason": "Published under MIT in commit0ddc87adf77e5850d7eeb542ac8a87d421b64daa; identical runtime text to0.2.4 after CRLF normalization."
+    }
+  ]
+}

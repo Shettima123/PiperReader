@@ -103,7 +103,7 @@ BUNDLED_BROWSER_EXTENSION_DIR = os.path.join(
 BROWSER_EXTENSION_DIR = (os.path.join(DATA_DIR, "browser_extension")
                          if IS_FROZEN else BUNDLED_BROWSER_EXTENSION_DIR)
 BROWSER_EXTENSION_ID = "inggjcimhmlkhfclodcihjpbhaddnlid"
-APP_VERSION = "1.6.4"
+APP_VERSION = "1.6.5"
 CLIPBOARD_ONLINE_TIMEOUT = 6.0
 CLIPBOARD_OFFLINE_COOLDOWN = 300.0
 CLIPBOARD_BACKUP_VOICE_ID = "en_US-lessac-medium"
@@ -4854,6 +4854,11 @@ class ReaderApp:
             activeforeground=ACCENT_DARK, bd=0, highlightthickness=0,
             padx=10, pady=4, font=(FONT_UI, 9, "bold"), cursor="hand2")
         self.contents_button.pack(side="left")
+        tk.Button(
+            toolbar, text="About & licenses", command=self.show_about,
+            bg=CARD, fg=INK_SOFT, activebackground=BTN_HOVER,
+            bd=0, highlightthickness=0, padx=10, pady=4,
+            font=(FONT_UI, 9), cursor="hand2").pack(side="right")
         self.reading_area = tk.Frame(self.card2.inner, bg=CARD)
         self.reading_area.pack(side="top", fill="both", expand=True)
         self.reading_area.grid_columnconfigure(1, weight=1)
@@ -4899,6 +4904,54 @@ class ReaderApp:
         self._welcome_text = self.text.get("1.0", "end").strip()
         self.text.edit_modified(False)
         self.text.bind("<<Modified>>", self._contents_text_changed, add="+")
+
+    def show_about(self):
+        dialog = tk.Toplevel(self.root)
+        dialog.title("About PiperReader")
+        dialog.transient(self.root)
+        dialog.configure(bg=CARD)
+        dpi = get_window_dpi(self.root)
+        place_window_in_workarea(dialog, scaled_ui_pixels(720, dpi),
+                                 scaled_ui_pixels(520, dpi))
+        dialog.minsize(scaled_ui_pixels(520, dpi), scaled_ui_pixels(360, dpi))
+        tk.Label(dialog, text=f"PiperReader {APP_VERSION}", bg=CARD, fg=INK,
+                 font=(FONT_UI, 17, "bold")).pack(anchor="w", padx=18, pady=(16, 8))
+        tk.Label(
+            dialog, text="Copyright (C) 2026 Shettima123\n"
+            "Free software under AGPL-3.0-only. You may share and modify it "
+            "under the license terms.\nProvided without warranty.",
+            bg=CARD, fg=INK, justify="left", wraplength=scaled_ui_pixels(480, dpi),
+            font=(FONT_UI, 10)).pack(anchor="w", padx=18, pady=(0, 12))
+        # Reserve the actions before the expanding license text claims space.
+        footer = tk.Frame(dialog, bg=CARD)
+        footer.pack(side="bottom", fill="x", padx=18, pady=(0, 14))
+        ttk.Button(footer, text="Source & downloads", command=lambda: webbrowser.open(
+            f"https://github.com/Shettima123/PiperReader/releases/tag/v{APP_VERSION}"),
+            ).pack(side="left")
+        ttk.Button(footer, text="Close", command=dialog.destroy).pack(side="right")
+        notebook = ttk.Notebook(dialog)
+        notebook.pack(fill="both", expand=True, padx=18, pady=(0, 10))
+        for title, filename in (("License", "LICENSE"),
+                                ("Third-party notices", "THIRD_PARTY_NOTICES.md"),
+                                ("Source code", "SOURCE_CODE.md")):
+            panel = tk.Frame(notebook, bg=CARD)
+            notebook.add(panel, text=title)
+            scroll = ttk.Scrollbar(panel)
+            scroll.pack(side="right", fill="y")
+            text = tk.Text(panel, wrap="word", bg=CARD, fg=INK,
+                           font=(FONT_UI, 10), bd=0, padx=10, pady=10,
+                           yscrollcommand=scroll.set)
+            text.pack(fill="both", expand=True)
+            scroll.configure(command=text.yview)
+            try:
+                with open(os.path.join(APP_DIR, filename), encoding="utf-8") as stream:
+                    content = stream.read()
+            except OSError:
+                content = ("See the project source and license at:\n"
+                           "https://github.com/Shettima123/PiperReader")
+            text.insert("1.0", content)
+            text.configure(state="disabled")
+        dialog.bind("<Escape>", lambda _event: dialog.destroy())
 
     def _build_contents_panel(self, parent):
         self._contents_open = False
@@ -7885,6 +7938,15 @@ def run_runtime_self_test():
             checks[module_name] = "ok"
         except Exception as exc:
             checks[module_name] = f"error: {exc}"
+    if IS_FROZEN:
+        try:
+            for relative in ("LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md",
+                             "SOURCE_CODE.md", "licenses/INDEX.txt", "licenses/SOURCES.json"):
+                if not os.path.isfile(os.path.join(APP_DIR, relative)):
+                    raise RuntimeError(f"Missing distribution material: {relative}")
+            checks["distribution_materials"] = "ok"
+        except Exception as exc:
+            checks["distribution_materials"] = f"error: {exc}"
     try:
         import soundfile as sf
         if "MP3" not in sf.available_formats():

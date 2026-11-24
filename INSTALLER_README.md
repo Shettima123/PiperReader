@@ -105,11 +105,13 @@ Official integration reference: https://learn.chatgpt.com/docs/non-interactive-m
 
 ## Build
 
-The build computer needs 64-bit Python 3.12, the application's runtime Python
-packages, PyInstaller 6, Pillow, and Inno Setup 6. Run this from PowerShell:
+The build computer needs an isolated 64-bit Python 3.12 environment, the pinned
+runtime/build packages, Inno Setup 6, and the verified native audio decoder.
+Follow README.md to build that decoder from source with Visual Studio C++ tools
+and copy its verified output into `build_assets/native_audio`. Then run:
 
 ```powershell
-.\build_installer.ps1
+.\build_installer.ps1 -Python .\.venv\Scripts\python.exe
 ```
 
 The build also needs `soundfile==0.13.1` and the pinned `edge-tts` revision in
@@ -137,25 +139,25 @@ speech requests begin only when a reading or audio export is requested.
 
 Upstream change: https://github.com/rany2/edge-tts/commit/ba61d94442c18893f0c4d3c5ad253718b21ab93e
 
-The script creates `release\PiperReaderSetup-1.6.4.exe`,
-`release\PiperReaderStandalone-1.6.4-x64.zip`, and
-`release\SHA256SUMS-1.6.4.txt`. It recreates this project's `build` and `dist`
+The script creates `release\PiperReaderSetup-1.6.5.exe`,
+`release\PiperReaderStandalone-1.6.5-x64.zip`, and
+`release\SHA256SUMS-1.6.5.txt`. It recreates this project's `build` and `dist`
 directories and keeps earlier release versions available for rollback.
 
 ## Install on another Windows computer
 
-Copy `PiperReaderSetup-1.6.4.exe` to the other 64-bit Windows 10 or Windows 11
+Copy `PiperReaderSetup-1.6.5.exe` to the other 64-bit Windows 10 or Windows 11
 computer and run it. Administrator access is not required. The optional startup
 task is checked by default and uses the current user's Windows Startup Apps
 registry entry. The optional desktop shortcut is unchecked by default.
 
-Alternatively, extract `PiperReaderStandalone-1.6.4-x64.zip` to a writable
+Alternatively, extract `PiperReaderStandalone-1.6.5-x64.zip` to a writable
 folder and run `PiperReader.exe`. The portable archive contains the same local
 OCR engine and English/Arabic recognition data as the installer build.
 
-The installer is not code-signed yet, so Windows SmartScreen may identify it as
-an unrecognized application. Only run an installer copied from your trusted
-build, and add Authenticode signing before any broader distribution.
+The installer is not code-signed, so Windows may identify its publisher as
+unknown. Obtain the installer from the project's GitHub release and verify its
+published SHA-256 checksum.
 
 The application installs under:
 
@@ -262,11 +264,11 @@ https://ai.google.dev/gemini-api/docs/pricing.
 
 ## Distribution status
 
-The application source is published under AGPL-3.0-only; see LICENSE. The initial
-public release contains source only. Existing private installer and portable
-builds are not published with it. The package contains GPL, AGPL, LGPL, and other
-components (including Piper, phonemizer, PyMuPDF, and pystray). A public binary
-release must supply the applicable license texts, notices, and corresponding
-source. The build collects available license texts into the installed `licenses`
-folder; this collection still needs the additions documented in
-THIRD_PARTY_NOTICES.md before the existing binaries are ready for publication.
+Version 1.6.5 is the public Windows release. Its installer and portable ZIP
+include the application LICENSE and NOTICE, third-party license texts, and
+SOURCE_CODE.md with directions to the matching source archives. Share the
+installer together with the GitHub release link so recipients can obtain those
+sources and verify the published checksums. See README.md for the updated build
+steps, including the required source-built native audio decoder.
+
+Release: https://github.com/Shettima123/PiperReader/releases/tag/v1.6.5

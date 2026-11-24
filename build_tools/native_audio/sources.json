@@ -1,0 +1,26 @@
+{
+  "libsndfile": {
+    "version": "1.2.2",
+    "filename": "libsndfile-1.2.2.tar.xz",
+    "url": "https://github.com/libsndfile/libsndfile/releases/download/1.2.2/libsndfile-1.2.2.tar.xz",
+    "sha256": "3799ca9924d3125038880367bf1468e53a1b7e3686a934f098b7e1d286cdb80e",
+    "license": "LGPL-2.1-or-later",
+    "license_file": "COPYING"
+  },
+  "mpg123": {
+    "version": "1.33.7",
+    "filename": "mpg123-1.33.7.tar.bz2",
+    "url": "https://www.mpg123.de/download/mpg123-1.33.7.tar.bz2",
+    "sha256": "31d0e35a4ca567ec9b5ebda6c3062bb4435d6d3eacd6ef0d95cadd7854dc03ee",
+    "license": "LGPL-2.1-or-later",
+    "license_file": "COPYING"
+  },
+  "lame": {
+    "version": "3.100",
+    "filename": "lame-3.100.tar.gz",
+    "url": "https://downloads.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz",
+    "sha256": "ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e",
+    "license": "LGPL-2.0-or-later",
+    "license_file": "COPYING"
+  }
+}

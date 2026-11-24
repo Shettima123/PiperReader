@@ -5,9 +5,14 @@ from __future__ import annotations
 import re
 import shutil
 import sys
+import argparse
+import hashlib
+import json
+import tarfile
+import zipfile
 from collections import deque
 from importlib.metadata import PackageNotFoundError, distribution
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 from packaging.requirements import Requirement
 
@@ -42,7 +47,7 @@ SEED_DISTRIBUTIONS = (
     "certifi",
 )
 LICENSE_NAMES = re.compile(
-    r"^(license|licence|copying|notice|authors?|copyright)(\..*)?$",
+    r"^(license|licence|copying|notice|authors?|copyright|third.?party.?notices?)([._-].*)?$",
     re.IGNORECASE,
 )
 
@@ -63,9 +68,8 @@ def _runtime_closure() -> list:
             continue
         try:
             dist = distribution(requested_name)
-        except PackageNotFoundError:
-            print(f"WARNING: installed distribution not found: {requested_name}")
-            continue
+        except PackageNotFoundError as exc:
+            raise RuntimeError(f"Required runtime distribution is missing: {requested_name}") from exc
         canonical = re.sub(
             r"[-_.]+", "-", dist.metadata.get("Name", requested_name)
         ).lower()
@@ -102,7 +106,67 @@ def _copy_unique(source: Path, destination_dir: Path, used: set[str]) -> str:
     return candidate
 
 
-def collect() -> Path:
+def require_notice(name: str, files: list) -> None:
+    if not files:
+        raise RuntimeError(f"Required license/notice text is missing for {name}")
+
+
+def copy_archive_notices(source: Path, destination: Path) -> list[str]:
+    """Copy complete notice bytes without extracting arbitrary archive paths."""
+    destination.mkdir(parents=True, exist_ok=True)
+    copied = []
+    total = 0
+
+    def copy_member(name, size, read):
+        nonlocal total
+        parts = PurePosixPath(name).parts
+        if not parts or name.startswith("/") or ".." in parts or "\\" in name or ":" in name:
+            return
+        if not LICENSE_NAMES.match(parts[-1]):
+            return
+        if size > 16 * 1024 * 1024 or total + size > 128 * 1024 * 1024:
+            raise RuntimeError(f"Unexpectedly large source notice in {source.name}: {name}")
+        content = read()
+        if len(content) != size:
+            raise RuntimeError(f"Truncated source notice: {name}")
+        total += size
+        # Flatten names to avoid path traversal and long Windows source paths.
+        relative = "__".join(parts[1:] or parts)
+        filename = _safe_name(relative)
+        if len(filename) > 150:
+            filename = filename[:130] + "_" + hashlib.sha256(name.encode()).hexdigest()[:12]
+        candidate = destination / filename
+        if candidate.exists() and candidate.read_bytes() != content:
+            candidate = destination / (hashlib.sha256(name.encode()).hexdigest()[:12] + "_" + filename)
+        candidate.write_bytes(content)
+        copied.append(candidate.name)
+
+    if zipfile.is_zipfile(source):
+        with zipfile.ZipFile(source) as archive:
+            for member in archive.infolist():
+                if not member.is_dir():
+                    copy_member(member.filename, member.file_size, lambda m=member: archive.read(m))
+    else:
+        with tarfile.open(source, "r:*") as archive:
+            for member in archive:
+                if member.isfile():
+                    copy_member(member.name, member.size, lambda m=member: archive.extractfile(m).read())
+    return copied
+
+
+def collect(sources_manifest: Path | None = None) -> Path:
+    if __package__:
+        from . import collect_sources
+    else:
+        import collect_sources
+
+    sources_manifest = sources_manifest or PROJECT_ROOT / "build_assets" / "sources" / "SOURCES.json"
+    source_data = collect_sources.load_manifest(sources_manifest)
+    collect_sources.verify_downloads(source_data, sources_manifest.parent)
+    runtime = _runtime_closure()
+    collect_sources.check_package_coverage(source_data, {
+        d.metadata["Name"]: d.version for d in runtime
+    })
     output_resolved = OUTPUT_ROOT.resolve()
     expected_parent = (PROJECT_ROOT / "build_assets").resolve()
     if output_resolved.parent != expected_parent or output_resolved.name != "licenses":
@@ -117,13 +181,31 @@ def collect() -> Path:
         "",
     ]
 
+    source_notices = {}
+    source_packages = {}
+    for item in source_data["artifacts"]:
+        destination = OUTPUT_ROOT / "source-notices" / _safe_name(item["id"])
+        copied = copy_archive_notices(sources_manifest.parent / item["filename"], destination)
+        source_notices[item["id"]] = copied
+        for package in item.get("packages", {}):
+            source_packages.setdefault(collect_sources.canonical(package), []).extend(copied)
+        index_lines.append(f"Source {item['component']} {item['version']} | {len(copied)} complete source notices | source-notices/{_safe_name(item['id'])}")
+
+    supplemental = PROJECT_ROOT / "licenses"
+    if not supplemental.is_dir():
+        raise RuntimeError("Required checked-in supplemental licenses directory is missing")
+    shutil.copytree(supplemental, OUTPUT_ROOT / "supplemental")
+    application_license = PROJECT_ROOT / "LICENSE"
+    require_notice("PiperReader AGPL-3.0", [application_license] if application_license.is_file() else [])
+    shutil.copy2(application_license, OUTPUT_ROOT / "PiperReader-AGPL-3.0.txt")
+
     python_dir = OUTPUT_ROOT / f"Python-{sys.version_info.major}.{sys.version_info.minor}"
     python_dir.mkdir()
     python_used: set[str] = set()
     python_candidates = [
         Path(sys.base_prefix) / "LICENSE.txt",
-        Path(sys.base_prefix) / "tcl" / "tcl8.6" / "license.terms",
-        Path(sys.base_prefix) / "tcl" / "tk8.6" / "license.terms",
+        PROJECT_ROOT / "licenses" / "tcl" / "license.terms",
+        PROJECT_ROOT / "licenses" / "tk" / "license.terms",
     ]
     copied_python = []
     for candidate in python_candidates:
@@ -131,12 +213,14 @@ def collect() -> Path:
             copied_python.append(
                 _copy_unique(candidate, python_dir, python_used)
             )
+        else:
+            raise RuntimeError(f"Required Python/Tcl/Tk license is missing: {candidate.name}")
     index_lines.append(
         f"Python {sys.version.split()[0]}: "
         + (", ".join(copied_python) if copied_python else "license text not found")
     )
 
-    for dist in _runtime_closure():
+    for dist in runtime:
         name = dist.metadata.get("Name", "unknown")
         version = dist.version
         destination = OUTPUT_ROOT / f"{_safe_name(name)}-{_safe_name(version)}"
@@ -146,6 +230,10 @@ def collect() -> Path:
             _copy_unique(source, destination, used)
             for source in _license_files(dist)
         ]
+        extra_files = list((supplemental / collect_sources.canonical(name)).rglob("*"))
+        extra_notices = [p for p in extra_files if p.is_file() and LICENSE_NAMES.match(p.name)]
+        available_notices = copied + source_packages.get(collect_sources.canonical(name), []) + extra_notices
+        require_notice(f"{name} {version}", available_notices)
         raw_expression = (
             dist.metadata.get("License-Expression")
             or dist.metadata.get("License")
@@ -162,7 +250,7 @@ def collect() -> Path:
             expression = raw_expression[:237] + "..."
         index_lines.append(
             f"{name} {version} | {expression} | "
-            + (", ".join(copied) if copied else "license text not found in wheel")
+            + (", ".join(copied) if copied else "complete notices in source-notices and/or supplemental")
         )
 
     for name, version, expression, source in EXTERNAL_LICENSES:
@@ -175,8 +263,23 @@ def collect() -> Path:
 
     index_path = OUTPUT_ROOT / "INDEX.txt"
     index_path.write_text("\n".join(index_lines) + "\n", encoding="utf-8")
+    shutil.copy2(sources_manifest, OUTPUT_ROOT / "SOURCES.json")
+    (OUTPUT_ROOT / "SOURCE_ACCESS.txt").write_text(
+        "PiperReader application and dependency source access\n\n"
+        "Application source, native audio build recipes, and the dependency source archive\n"
+        "are available together at https://github.com/Shettima123/PiperReader/releases/tag/v1.6.5\n"
+        "Dependency archive: PiperReader-1.6.5-dependency-sources.zip\n"
+        "SOURCES.json records exact upstream revisions and artifact hashes.\n"
+        "The source archive preserves each upstream license and build instructions.\n"
+        "See supplemental and source-notices for the complete applicable notices, including\n"
+        "the LGPL audio components, eSpeak NG GPL, MuPDF AGPL, and PyInstaller exception.\n",
+        encoding="utf-8",
+    )
     return index_path
 
 
 if __name__ == "__main__":
-    print(collect())
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--sources-manifest", type=Path)
+    arguments = parser.parse_args()
+    print(collect(arguments.sources_manifest))
